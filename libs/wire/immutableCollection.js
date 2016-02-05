@@ -38,6 +38,10 @@ export default class ImmutableCollection {
 
 	}
 
+	query(predicate) {
+
+	}
+
 	insert(instance) {
 		instance[collectionTypeSymbol] = this.collectionName;
 		instance.id = generateUniqueID();
