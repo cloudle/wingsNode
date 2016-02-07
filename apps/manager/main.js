@@ -4,3 +4,4 @@ import {Component} from 'react';
 console.log("Just another hello world message..");
 
 var Connection = new WireClient('localhost:7015');
+global.Wire = Connection;

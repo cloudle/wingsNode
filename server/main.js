@@ -2,7 +2,7 @@ import express from 'express';
 import {developmentSetup, startServer} from './helpers';
 import classicRouter from './classicRouter';
 import apiRouter from './apiRouter';
-import {injectSocketProtocol} from './socketProtocol';
+import Wire from '../libs/wire/server';
 
 var app = express();
 
@@ -16,4 +16,4 @@ app.use('/api', apiRouter);
 var port = process.env.PORT || 7015;
 var server = startServer(app, port, 'localhost');
 
-injectSocketProtocol(server);
+var wire = new Wire(server);

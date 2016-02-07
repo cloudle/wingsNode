@@ -1,7 +1,7 @@
 import {
 	collectionTypeSymbol,
 	generateUniqueID
-} from './utilities';
+} from '../utilities';
 
 export default class ImmutableCollection {
 	constructor(collectionName, wireSocket) {

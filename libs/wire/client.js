@@ -1,4 +1,5 @@
 import io from 'socket.io-client/socket.io';
+import ImmutableCollection from './client/immutableCollection';
 
 import {
 	collectionTypeSymbol,
@@ -7,22 +8,22 @@ import {
 
 export default class WireClient {
 	constructor(serverUrl, options = {jsonp: false}) {
-		var socket = this.socket = io.connect(serverUrl);
+		this.io = io.connect(serverUrl);
 
-		socket.on('connect', response => {
-			socket.emit('global', {message: "Hello server!"});
+		this.io.on('connect', response => {
+			this.io.emit('global', {message: "Hello server!"});
 		})
 	}
 
-	login(account, secret, callback) {
+	collection(name, collectionDriver = ImmutableCollection) {
+		return collectionDriver(name, collectionDriver);
+	}
+
+	subscribe(name, options) {
 
 	}
 
-	registerCollection(collectionName) {
-
-	}
-
-	subscribe() {
+	run() {
 
 	}
 
@@ -30,7 +31,7 @@ export default class WireClient {
 
 	}
 
-	run() {
+	login(account, secret, callback) {
 
 	}
 }
