@@ -26,8 +26,8 @@ var messageCollection = wire.collection('messages', {
 		console.log(messageStore);
 		return options;
 	},
-	update: (id, options) => {
-		var currentMessage = _.findWhere(messageStore, {id});
+	update: (options) => {
+		var currentMessage = _.findWhere(messageStore, {id: options.id});
 		currentMessage = Object.assign(currentMessage, options);
 
 		return currentMessage;
